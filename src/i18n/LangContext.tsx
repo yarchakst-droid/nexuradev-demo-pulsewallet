@@ -26,8 +26,15 @@ function subscribe(callback: () => void) {
 }
 
 function getSnapshot(): Lang {
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  return isLang(stored) ? stored : "uk";
+  // localStorage access can throw (private browsing, disabled storage,
+  // enterprise policy) — fall back to the default rather than crashing
+  // the whole tree via useSyncExternalStore.
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    return isLang(stored) ? stored : "uk";
+  } catch {
+    return "uk";
+  }
 }
 
 function getServerSnapshot(): Lang {
@@ -51,7 +58,11 @@ export function LangProvider({ children }: { children: ReactNode }) {
   }, [lang]);
 
   function setLang(next: Lang) {
-    window.localStorage.setItem(STORAGE_KEY, next);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, next);
+    } catch {
+      // Storage may be unavailable — the switch just won't persist across visits.
+    }
     emitChange();
   }
 
