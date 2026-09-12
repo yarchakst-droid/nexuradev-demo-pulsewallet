@@ -78,91 +78,12 @@ export function ReceiptIcon({ className }: IconProps) {
   );
 }
 
-export function CardIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={w} className={className}>
-      <rect x="3" y="5.5" width="18" height="13" rx="2.5" />
-      <path d="M3 9.5h18" strokeLinecap="round" />
-      <path d="M6.5 14.5h4" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-export function SendIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={w} className={className}>
-      <path d="M20 4 10.5 13.5M20 4l-6.5 16-3-6.5L4 10.5 20 4Z" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function RequestIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={w} className={className}>
-      <path d="M4 20 13.5 10.5M4 20l6.5-16 3 6.5L20 13.5 4 20Z" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function PlusIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={w} className={className}>
-      <path d="M12 5v14M5 12h14" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-export function ArrowUpRightIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={w} className={className}>
-      <path d="M7 17 17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function ArrowDownLeftIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={w} className={className}>
-      <path d="M17 7 7 17M15 17H7V9" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function HomeIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={w} className={className}>
-      <path d="M4 11.5 12 4l8 7.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M6 10v9.5h12V10" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function GridIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={w} className={className}>
-      <rect x="4" y="4" width="6.5" height="6.5" rx="1.5" />
-      <rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" />
-      <rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" />
-      <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" />
-    </svg>
-  );
-}
-
 export function UserCircleIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={w} className={className}>
       <circle cx="12" cy="12" r="8.5" />
       <circle cx="12" cy="10" r="3" />
       <path d="M6.3 18.2c1-2.3 3.1-3.7 5.7-3.7s4.7 1.4 5.7 3.7" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-export function MailIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={w} className={className}>
-      <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
-      <path d="m4 7 8 6 8-6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
