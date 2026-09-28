@@ -13,10 +13,10 @@ export default function Nav() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold text-text">
           <LogoMark className="size-5 text-accent" />
-          PulseWallet
+          <span className="hidden md:inline">PulseWallet</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm text-text-soft sm:flex">
+        <nav className="hidden items-center gap-8 text-sm text-text-soft md:flex">
           <Link href="#features" className="transition-colors hover:text-text">
             {t.nav.features}
           </Link>
@@ -32,7 +32,7 @@ export default function Nav() {
           <LanguageSwitcher />
           <Link
             href="#waitlist"
-            className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.03] active:scale-[0.98]"
+            className="rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-white transition-transform hover:scale-[1.03] active:scale-[0.98]"
           >
             {t.nav.join}
           </Link>

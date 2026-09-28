@@ -19,7 +19,7 @@ export default function LanguageSwitcher({ className = "" }: { className?: strin
             type="button"
             onClick={() => setLang(option)}
             aria-label={`PulseWallet: ${LANG_LABELS[option]}`}
-            className={`rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide transition-colors ${
+            className={`rounded-full px-2.5 py-2 text-[10px] font-semibold tracking-wide transition-colors ${
               active ? "bg-accent text-white" : "text-text-muted hover:text-text-soft"
             }`}
           >

@@ -69,7 +69,7 @@ export default function WaitlistForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t.waitlist.emailPlaceholder}
-          className="w-full rounded-full border border-border bg-bg-panel px-4 py-3 text-sm text-text placeholder:text-text-muted focus:border-accent/50 focus:outline-none"
+          className="w-full rounded-full border border-border bg-bg-panel px-4 py-3 text-base text-text placeholder:text-text-muted focus:border-accent/50 focus:outline-none sm:text-sm"
         />
         <button
           type="submit"
@@ -86,7 +86,7 @@ export default function WaitlistForm() {
             key={r.value}
             type="button"
             onClick={() => setRole(r.value)}
-            className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors ${
+            className={`rounded-full border px-3.5 py-2.5 text-xs font-medium transition-colors ${
               role === r.value
                 ? "border-accent/40 bg-accent-soft text-accent"
                 : "border-border text-text-soft hover:border-text-soft"
