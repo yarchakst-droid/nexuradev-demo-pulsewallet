@@ -36,13 +36,6 @@ export interface Dictionary {
     joinWaitlist: string;
     viewApp: string;
   };
-  stats: {
-    accountMinutes: string;
-    onWaitlist: string;
-    hiddenFees: string;
-    currencies: string;
-    minutesSuffix: string;
-  };
   features: {
     eyebrow: string;
     heading: string;
@@ -123,13 +116,6 @@ const uk: Dictionary = {
       "PulseWallet - рахунок, картка та перекази для фрилансерів і засновників малого бізнесу. Відкриття за 2 хвилини, без черг і паперів.",
     joinWaitlist: "Приєднатися до вейтлиста",
     viewApp: "Переглянути застосунок",
-  },
-  stats: {
-    accountMinutes: "на відкриття рахунку",
-    onWaitlist: "у списку очікування",
-    hiddenFees: "прихованих комісій",
-    currencies: "валюти для переказів",
-    minutesSuffix: " хв",
   },
   features: {
     eyebrow: "Можливості",
@@ -213,13 +199,6 @@ const en: Dictionary = {
     joinWaitlist: "Join the waitlist",
     viewApp: "View the app",
   },
-  stats: {
-    accountMinutes: "to open an account",
-    onWaitlist: "on the waitlist",
-    hiddenFees: "hidden fees",
-    currencies: "currencies for transfers",
-    minutesSuffix: " min",
-  },
   features: {
     eyebrow: "Features",
     heading: "Everything you need to make your money work for you",
@@ -301,13 +280,6 @@ const ru: Dictionary = {
       "PulseWallet - счёт, карта и переводы для фрилансеров и основателей малого бизнеса. Открытие за 2 минуты, без очередей и бумаг.",
     joinWaitlist: "Присоединиться к вейтлисту",
     viewApp: "Посмотреть приложение",
-  },
-  stats: {
-    accountMinutes: "на открытие счёта",
-    onWaitlist: "в списке ожидания",
-    hiddenFees: "скрытых комиссий",
-    currencies: "валюты для переводов",
-    minutesSuffix: " мин",
   },
   features: {
     eyebrow: "Возможности",

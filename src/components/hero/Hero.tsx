@@ -3,7 +3,6 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import StatsRow from "@/components/hero/StatsRow";
 import { useLang } from "@/i18n/LangContext";
 
 const CardScene = dynamic(() => import("@/components/hero/CardScene"), {
@@ -18,7 +17,18 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-8 pt-16 lg:grid-cols-[1fr_1.05fr] lg:gap-8 lg:pt-20">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[560px] opacity-[0.08]"
+        style={{
+          background:
+            "linear-gradient(120deg, var(--color-mint) 0%, var(--color-sky) 45%, var(--color-pink) 100%)",
+          maskImage: "radial-gradient(60% 60% at 70% 25%, black, transparent 75%)",
+          WebkitMaskImage: "radial-gradient(60% 60% at 70% 25%, black, transparent 75%)",
+        }}
+      />
+
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-16 pt-16 lg:grid-cols-[1fr_1.05fr] lg:gap-8 lg:pt-20">
         <div className="text-center lg:text-left">
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
@@ -65,14 +75,13 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto h-[340px] w-full max-w-lg sm:h-[420px] lg:h-[480px]"
         >
-          <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bg-elevated blur-3xl" />
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-3xl"
+            style={{ background: "linear-gradient(135deg, var(--color-mint), var(--color-sky))" }}
+          />
           <CardScene />
           <div className="pointer-events-none absolute inset-x-10 bottom-2 h-8 rounded-full bg-text/10 blur-xl" />
         </motion.div>
-      </div>
-
-      <div className="relative border-t border-border-soft py-10">
-        <StatsRow />
       </div>
     </section>
   );

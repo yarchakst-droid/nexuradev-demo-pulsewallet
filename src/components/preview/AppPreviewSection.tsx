@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/LangContext";
 
+const BULLET_COLORS = ["var(--color-mint)", "var(--color-sky)", "var(--color-pink)"];
+
 export default function AppPreviewSection() {
   const { t } = useLang();
   const bullets = [t.preview.bullet1, t.preview.bullet2, t.preview.bullet3];
@@ -18,9 +20,9 @@ export default function AppPreviewSection() {
           </h2>
           <p className="mx-auto mt-4 max-w-md text-text-soft lg:mx-0">{t.preview.subhead}</p>
           <ul className="mx-auto mt-6 flex max-w-md flex-col gap-2.5 text-left lg:mx-0">
-            {bullets.map((item) => (
+            {bullets.map((item, i) => (
               <li key={item} className="flex items-center gap-2.5 text-sm text-text-soft">
-                <span className="size-1.5 shrink-0 rounded-full bg-accent" />
+                <span className="size-1.5 shrink-0 rounded-full" style={{ backgroundColor: BULLET_COLORS[i % BULLET_COLORS.length] }} />
                 {item}
               </li>
             ))}
@@ -34,7 +36,10 @@ export default function AppPreviewSection() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto w-full max-w-[320px]"
         >
-          <div className="pointer-events-none absolute inset-x-6 bottom-6 top-10 -z-10 rounded-[3rem] bg-bg-elevated" />
+          <div
+            className="pointer-events-none absolute inset-x-6 bottom-6 top-10 -z-10 rounded-[3rem]"
+            style={{ background: "linear-gradient(160deg, color-mix(in srgb, var(--color-sky) 12%, var(--color-bg-elevated)), color-mix(in srgb, var(--color-mint) 10%, var(--color-bg-elevated)))" }}
+          />
           <Image
             src="/images/phone-preview.jpg"
             alt={t.preview.heading}

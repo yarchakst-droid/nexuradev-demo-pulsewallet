@@ -8,8 +8,17 @@ export default function WaitlistSection() {
 
   return (
     <section id="waitlist" className="mx-auto max-w-4xl scroll-mt-16 px-6 py-24">
-      <div className="panel theme-invert flex flex-col items-center gap-6 rounded-3xl border border-border px-6 py-16 text-center sm:px-16">
-        <span className="rounded-full border border-border bg-bg-panel px-3 py-1 text-xs text-text-soft">
+      <div className="panel theme-invert relative flex flex-col items-center gap-6 overflow-hidden rounded-3xl border border-border px-6 py-16 text-center sm:px-16">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-full opacity-30"
+          style={{
+            background: "linear-gradient(120deg, var(--color-mint) 0%, var(--color-sky) 45%, var(--color-pink) 100%)",
+            maskImage: "radial-gradient(55% 55% at 50% 0%, black, transparent 75%)",
+            WebkitMaskImage: "radial-gradient(55% 55% at 50% 0%, black, transparent 75%)",
+          }}
+        />
+        <span className="relative rounded-full border border-border bg-bg-panel px-3 py-1 text-xs text-text-soft">
           {t.waitlist.badge}
         </span>
         <h2 className="text-balance font-display text-3xl font-semibold text-text sm:text-4xl">{t.waitlist.heading}</h2>
