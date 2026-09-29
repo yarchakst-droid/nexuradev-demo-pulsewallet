@@ -8,7 +8,7 @@ export default function WaitlistSection() {
 
   return (
     <section id="waitlist" className="mx-auto max-w-4xl scroll-mt-16 px-6 py-24">
-      <div className="panel flex flex-col items-center gap-6 rounded-3xl border border-border px-6 py-16 text-center sm:px-16">
+      <div className="panel theme-invert flex flex-col items-center gap-6 rounded-3xl border border-border px-6 py-16 text-center sm:px-16">
         <span className="rounded-full border border-border bg-bg-panel px-3 py-1 text-xs text-text-soft">
           {t.waitlist.badge}
         </span>

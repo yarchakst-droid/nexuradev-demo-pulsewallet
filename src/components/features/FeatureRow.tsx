@@ -7,6 +7,14 @@ import type { features } from "@/data/features";
 
 type Feature = (typeof features)[number];
 
+const FEATURE_ICON_COLORS = [
+  "var(--color-mint)",
+  "var(--color-pink)",
+  "var(--color-sky)",
+  "var(--color-gold)",
+  "#ffffff",
+];
+
 export default function FeatureRow({ feature, index }: { feature: Feature; index: number }) {
   const { lang } = useLang();
   const reversed = index % 2 === 1;
@@ -22,11 +30,13 @@ export default function FeatureRow({ feature, index }: { feature: Feature; index
       }`}
     >
       <div>
-        <span className="relative flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/25 via-accent/10 to-mint/15 text-accent shadow-[0_8px_20px_-10px_var(--color-accent)] ring-1 ring-inset ring-accent/25">
-          <span className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.25),transparent_60%)]" />
-          <feature.icon className="relative size-5.5" />
+        <span
+          className="flex size-12 items-center justify-center rounded-2xl bg-text text-bg"
+          style={{ color: FEATURE_ICON_COLORS[index % FEATURE_ICON_COLORS.length] }}
+        >
+          <feature.icon className="size-5.5" />
         </span>
-        <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-accent">{feature.eyebrow[lang]}</p>
+        <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-text-muted">{feature.eyebrow[lang]}</p>
         <h3 className="mt-2 text-balance font-display text-2xl font-semibold text-text sm:text-3xl">
           {feature.title[lang]}
         </h3>

@@ -7,20 +7,20 @@ export default function StatsRow() {
   const { t } = useLang();
 
   const STATS = [
-    { value: 2, suffix: t.stats.minutesSuffix, label: t.stats.accountMinutes },
-    { value: 12400, suffix: "+", label: t.stats.onWaitlist },
-    { value: 0, suffix: "%", label: t.stats.hiddenFees },
-    { value: 42, suffix: "", label: t.stats.currencies },
+    { value: 2, suffix: t.stats.minutesSuffix, label: t.stats.accountMinutes, color: "var(--color-mint)" },
+    { value: 12400, suffix: "+", label: t.stats.onWaitlist, color: "var(--color-pink)" },
+    { value: 0, suffix: "%", label: t.stats.hiddenFees, color: "var(--color-sky)" },
+    { value: 42, suffix: "", label: t.stats.currencies, color: "#ffffff" },
   ];
 
   return (
-    <div className="mx-auto grid max-w-3xl grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4">
+    <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4">
       {STATS.map((stat) => (
-        <div key={stat.label} className="text-center">
-          <p className="font-mono text-3xl font-medium text-text sm:text-4xl">
+        <div key={stat.label} className="rounded-2xl bg-text px-4 py-5 sm:px-5 sm:py-6">
+          <p className="font-mono text-2xl font-medium sm:text-3xl" style={{ color: stat.color }}>
             <CountUpOnView value={stat.value} suffix={stat.suffix} />
           </p>
-          <p className="mt-1.5 text-xs text-text-muted">{stat.label}</p>
+          <p className="mt-2 text-xs text-bg/55">{stat.label}</p>
         </div>
       ))}
     </div>

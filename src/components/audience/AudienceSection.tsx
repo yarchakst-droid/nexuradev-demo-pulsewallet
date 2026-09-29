@@ -10,7 +10,7 @@ export default function AudienceSection() {
   return (
     <section id="audience" className="mx-auto max-w-6xl scroll-mt-16 px-6 py-24">
       <div className="mx-auto max-w-xl text-center">
-        <p className="text-sm font-semibold uppercase tracking-wide text-accent">{t.audience.eyebrow}</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-text-muted">{t.audience.eyebrow}</p>
         <h2 className="mt-3 text-balance font-display text-3xl font-semibold text-text sm:text-4xl">
           {t.audience.heading}
         </h2>

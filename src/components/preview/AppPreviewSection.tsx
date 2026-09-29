@@ -9,10 +9,10 @@ export default function AppPreviewSection() {
   const bullets = [t.preview.bullet1, t.preview.bullet2, t.preview.bullet3];
 
   return (
-    <section id="preview" className="scroll-mt-16 border-t border-border-soft bg-bg-panel/40 py-24">
+    <section id="preview" className="scroll-mt-16 border-t border-border-soft bg-bg-panel py-24">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
         <div className="text-center lg:text-left">
-          <p className="text-sm font-semibold uppercase tracking-wide text-accent">{t.preview.eyebrow}</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-text-muted">{t.preview.eyebrow}</p>
           <h2 className="mt-3 text-balance font-display text-3xl font-semibold text-text sm:text-4xl">
             {t.preview.heading}
           </h2>
@@ -34,10 +34,7 @@ export default function AppPreviewSection() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto w-full max-w-[320px]"
         >
-          <div
-            className="pointer-events-none absolute inset-0 -z-10 scale-90 blur-[90px]"
-            style={{ background: "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 40%, transparent), transparent 70%)" }}
-          />
+          <div className="pointer-events-none absolute inset-x-6 bottom-6 top-10 -z-10 rounded-[3rem] bg-bg-elevated" />
           <Image
             src="/images/phone-preview.jpg"
             alt={t.preview.heading}

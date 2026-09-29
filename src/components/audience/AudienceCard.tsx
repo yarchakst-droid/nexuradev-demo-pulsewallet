@@ -19,8 +19,7 @@ export default function AudienceCard({ persona, index }: { persona: AudiencePers
     >
       <div className="relative aspect-[4/3] w-full">
         <Image src={persona.photo} alt={persona.title[lang]} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
-        <span className="absolute left-4 top-4 rounded-full bg-bg/80 px-3 py-1 text-xs font-medium text-text backdrop-blur-sm">
+        <span className="absolute left-4 top-4 rounded-full bg-bg/90 px-3 py-1 text-xs font-medium text-text backdrop-blur-sm">
           {persona.tag[lang]}
         </span>
       </div>
@@ -31,7 +30,7 @@ export default function AudienceCard({ persona, index }: { persona: AudiencePers
         <ul className="mt-4 flex flex-col gap-2">
           {persona.points.map((point) => (
             <li key={point.uk} className="flex items-start gap-2.5 text-sm text-text-soft">
-              <CheckIcon className="mt-0.5 size-3.5 shrink-0 text-accent" />
+              <CheckIcon className="mt-0.5 size-3.5 shrink-0 text-mint" />
               {point[lang]}
             </li>
           ))}

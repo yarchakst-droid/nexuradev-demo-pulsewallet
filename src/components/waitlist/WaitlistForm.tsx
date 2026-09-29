@@ -74,7 +74,7 @@ export default function WaitlistForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-accent px-5 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70"
+          className="flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-bg transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70"
         >
           {status === "loading" ? t.waitlist.joining : t.waitlist.join}
         </button>
