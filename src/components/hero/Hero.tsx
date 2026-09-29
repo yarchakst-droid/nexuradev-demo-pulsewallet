@@ -18,13 +18,13 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-8 pt-16 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pt-24">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-8 pt-16 lg:grid-cols-[1fr_1.05fr] lg:gap-8 lg:pt-20">
         <div className="text-center lg:text-left">
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="text-balance font-display text-4xl font-semibold leading-[1.08] text-text sm:text-5xl lg:text-[3.4rem]"
+            className="text-balance font-display text-5xl font-bold leading-[0.98] tracking-tight text-text sm:text-6xl lg:text-[4rem]"
           >
             {t.hero.headline}
           </motion.h1>
@@ -63,9 +63,9 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mx-auto h-[300px] w-full max-w-md sm:h-[360px] lg:h-[420px]"
+          className="relative mx-auto h-[340px] w-full max-w-lg sm:h-[420px] lg:h-[480px]"
         >
-          <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bg-elevated blur-3xl" />
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bg-elevated blur-3xl" />
           <CardScene />
           <div className="pointer-events-none absolute inset-x-10 bottom-2 h-8 rounded-full bg-text/10 blur-xl" />
         </motion.div>

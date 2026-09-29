@@ -16,7 +16,7 @@ export default function FeaturesSection() {
         </h2>
       </div>
 
-      <div className="mt-4">
+      <div className="relative mt-16">
         {features.map((feature, i) => (
           <FeatureRow key={feature.visual} feature={feature} index={i} />
         ))}

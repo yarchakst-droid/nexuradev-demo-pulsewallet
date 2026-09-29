@@ -23,6 +23,11 @@ export interface Dictionary {
   footer: {
     waitlist: string;
     tagline: string;
+    colProduct: string;
+    colJoin: string;
+    colProject: string;
+    linkCase: string;
+    disclaimer: string;
   };
   hero: {
     badge: string;
@@ -105,6 +110,11 @@ const uk: Dictionary = {
   footer: {
     waitlist: "Вейтлист",
     tagline: "PulseWallet готується до запуску. Демо-проєкт для портфоліо NexuraDev - не є реальним фінансовим продуктом.",
+    colProduct: "Продукт",
+    colJoin: "Приєднатися",
+    colProject: "Проєкт",
+    linkCase: "Кейс проєкту",
+    disclaimer: "Це навчальний демо-проєкт. PulseWallet не є банком чи фінансовою установою і не приймає платежі.",
   },
   hero: {
     badge: "Готуємось до запуску - реєструйтесь у вейтлист",
@@ -189,6 +199,11 @@ const en: Dictionary = {
   footer: {
     waitlist: "Waitlist",
     tagline: "PulseWallet is getting ready to launch. A portfolio demo project for NexuraDev - not a real financial product.",
+    colProduct: "Product",
+    colJoin: "Get started",
+    colProject: "Project",
+    linkCase: "Case study",
+    disclaimer: "This is a learning demo project. PulseWallet is not a bank or financial institution and does not process payments.",
   },
   hero: {
     badge: "Getting ready to launch - join the waitlist",
@@ -273,6 +288,11 @@ const ru: Dictionary = {
   footer: {
     waitlist: "Вейтлист",
     tagline: "PulseWallet готовится к запуску. Демо-проект для портфолио NexuraDev - не является реальным финансовым продуктом.",
+    colProduct: "Продукт",
+    colJoin: "Присоединиться",
+    colProject: "Проект",
+    linkCase: "Кейс проекта",
+    disclaimer: "Это учебный демо-проект. PulseWallet не является банком или финансовым учреждением и не принимает платежи.",
   },
   hero: {
     badge: "Готовимся к запуску - регистрируйтесь в вейтлист",

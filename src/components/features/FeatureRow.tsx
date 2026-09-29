@@ -15,46 +15,48 @@ const FEATURE_ICON_COLORS = [
   "#ffffff",
 ];
 
+// Each card is `sticky` at an offset that increases with `index`, so as the
+// page scrolls, card N reaches its resting position a little lower than
+// card N-1 and (thanks to the higher z-index) slides down over it instead
+// of the page just scrolling both out of view - the "stacked steps" effect.
+// This is pure CSS: a sticky element keeps its own flow height, so the next
+// card only catches up to cover the previous one once roughly a card's
+// worth of scrolling has happened, no extra spacer wrapper needed.
 export default function FeatureRow({ feature, index }: { feature: Feature; index: number }) {
   const { lang } = useLang();
-  const reversed = index % 2 === 1;
+  const accent = FEATURE_ICON_COLORS[index % FEATURE_ICON_COLORS.length];
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-15% 0px" }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`grid grid-cols-1 items-center gap-8 border-t border-border-soft py-14 first:border-0 md:grid-cols-2 md:gap-16 ${
-        reversed ? "md:[&>*:first-child]:order-2" : ""
-      }`}
+      viewport={{ once: true, margin: "-20% 0px" }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      style={{ top: `${88 + index * 18}px`, zIndex: index + 1 }}
+      className="sticky mb-6"
     >
-      <div>
-        <div className="flex items-center gap-3">
-          <span
-            className="flex size-12 items-center justify-center rounded-2xl bg-text text-bg"
-            style={{ color: FEATURE_ICON_COLORS[index % FEATURE_ICON_COLORS.length] }}
-          >
-            <feature.icon className="size-5.5" />
-          </span>
-          <span className="font-mono text-sm text-text-muted">{String(index + 1).padStart(2, "0")}</span>
-        </div>
-        <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-text-muted">{feature.eyebrow[lang]}</p>
-        <h3 className="mt-2 text-balance font-display text-2xl font-semibold text-text sm:text-3xl">
-          {feature.title[lang]}
-        </h3>
-        <p className="mt-3 max-w-md text-text-soft">{feature.description[lang]}</p>
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.94 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-15% 0px" }}
-        transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="panel overflow-hidden rounded-2xl border border-border transition-transform duration-300 ease-out hover:-translate-y-1"
+      <div
+        style={{ backgroundColor: `color-mix(in srgb, ${accent} 5%, var(--color-bg))` }}
+        className="grid grid-cols-1 items-center gap-8 rounded-[1.75rem] border border-border p-7 shadow-[0_30px_60px_-30px_rgba(15,16,20,0.22)] sm:p-10 md:grid-cols-2 md:gap-12"
       >
-        <FeatureVisual kind={feature.visual} />
-      </motion.div>
+        <div>
+          <div className="flex items-center gap-3">
+            <span className="flex size-12 items-center justify-center rounded-2xl bg-text text-bg" style={{ color: accent }}>
+              <feature.icon className="size-5.5" />
+            </span>
+            <span className="font-mono text-sm text-text-muted">{String(index + 1).padStart(2, "0")}</span>
+          </div>
+          <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-text-muted">{feature.eyebrow[lang]}</p>
+          <h3 className="mt-2 text-balance font-display text-2xl font-semibold text-text sm:text-3xl">
+            {feature.title[lang]}
+          </h3>
+          <p className="mt-3 max-w-md text-text-soft">{feature.description[lang]}</p>
+        </div>
+
+        <div className="overflow-hidden rounded-2xl border border-border bg-bg">
+          <FeatureVisual kind={feature.visual} />
+        </div>
+      </div>
     </motion.div>
   );
 }
