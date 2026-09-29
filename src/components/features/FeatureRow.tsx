@@ -30,12 +30,15 @@ export default function FeatureRow({ feature, index }: { feature: Feature; index
       }`}
     >
       <div>
-        <span
-          className="flex size-12 items-center justify-center rounded-2xl bg-text text-bg"
-          style={{ color: FEATURE_ICON_COLORS[index % FEATURE_ICON_COLORS.length] }}
-        >
-          <feature.icon className="size-5.5" />
-        </span>
+        <div className="flex items-center gap-3">
+          <span
+            className="flex size-12 items-center justify-center rounded-2xl bg-text text-bg"
+            style={{ color: FEATURE_ICON_COLORS[index % FEATURE_ICON_COLORS.length] }}
+          >
+            <feature.icon className="size-5.5" />
+          </span>
+          <span className="font-mono text-sm text-text-muted">{String(index + 1).padStart(2, "0")}</span>
+        </div>
         <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-text-muted">{feature.eyebrow[lang]}</p>
         <h3 className="mt-2 text-balance font-display text-2xl font-semibold text-text sm:text-3xl">
           {feature.title[lang]}
@@ -48,7 +51,7 @@ export default function FeatureRow({ feature, index }: { feature: Feature; index
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-15% 0px" }}
         transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="panel overflow-hidden rounded-2xl border border-border"
+        className="panel overflow-hidden rounded-2xl border border-border transition-transform duration-300 ease-out hover:-translate-y-1"
       >
         <FeatureVisual kind={feature.visual} />
       </motion.div>

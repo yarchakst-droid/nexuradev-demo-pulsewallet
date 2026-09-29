@@ -17,13 +17,16 @@ export default function Nav() {
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm text-text-soft md:flex">
-          <Link href="#features" className="transition-colors hover:text-text">
+          <Link href="#features" className="nav-link">
             {t.nav.features}
           </Link>
-          <Link href="#preview" className="transition-colors hover:text-text">
+          <Link href="#cards" className="nav-link">
+            {t.nav.cards}
+          </Link>
+          <Link href="#preview" className="nav-link">
             {t.nav.preview}
           </Link>
-          <Link href="#audience" className="transition-colors hover:text-text">
+          <Link href="#audience" className="nav-link">
             {t.nav.audience}
           </Link>
         </nav>

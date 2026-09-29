@@ -15,10 +15,16 @@ export default function AudienceCard({ persona, index }: { persona: AudiencePers
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="panel overflow-hidden rounded-2xl border border-border"
+      className="group panel overflow-hidden rounded-2xl border border-border"
     >
-      <div className="relative aspect-[4/3] w-full">
-        <Image src={persona.photo} alt={persona.title[lang]} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+      <div className="relative aspect-[4/3] w-full overflow-hidden">
+        <Image
+          src={persona.photo}
+          alt={persona.title[lang]}
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        />
         <span className="absolute left-4 top-4 rounded-full bg-bg/90 px-3 py-1 text-xs font-medium text-text backdrop-blur-sm">
           {persona.tag[lang]}
         </span>

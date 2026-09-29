@@ -18,6 +18,9 @@ export default function Footer() {
           <Link href="#features" className="hover:text-text-soft">
             {t.nav.features}
           </Link>
+          <Link href="#cards" className="hover:text-text-soft">
+            {t.nav.cards}
+          </Link>
           <Link href="#preview" className="hover:text-text-soft">
             {t.nav.preview}
           </Link>

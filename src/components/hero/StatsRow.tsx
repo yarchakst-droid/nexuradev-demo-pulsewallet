@@ -16,7 +16,10 @@ export default function StatsRow() {
   return (
     <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4">
       {STATS.map((stat) => (
-        <div key={stat.label} className="rounded-2xl bg-text px-4 py-5 sm:px-5 sm:py-6">
+        <div
+          key={stat.label}
+          className="rounded-2xl bg-text px-4 py-5 transition-transform duration-300 ease-out hover:-translate-y-1 sm:px-5 sm:py-6"
+        >
           <p className="font-mono text-2xl font-medium sm:text-3xl" style={{ color: stat.color }}>
             <CountUpOnView value={stat.value} suffix={stat.suffix} />
           </p>

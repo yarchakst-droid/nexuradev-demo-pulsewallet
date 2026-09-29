@@ -15,6 +15,7 @@ export const LOCALE_TAGS: Record<Lang, string> = {
 export interface Dictionary {
   nav: {
     features: string;
+    cards: string;
     preview: string;
     audience: string;
     join: string;
@@ -40,6 +41,13 @@ export interface Dictionary {
   features: {
     eyebrow: string;
     heading: string;
+  };
+  cards: {
+    eyebrow: string;
+    heading: string;
+    subhead: string;
+    prev: string;
+    next: string;
   };
   featureVisuals: {
     transferSeconds: string;
@@ -89,6 +97,7 @@ export interface Dictionary {
 const uk: Dictionary = {
   nav: {
     features: "Можливості",
+    cards: "Картки",
     preview: "Застосунок",
     audience: "Для кого",
     join: "Приєднатися",
@@ -115,6 +124,13 @@ const uk: Dictionary = {
   features: {
     eyebrow: "Можливості",
     heading: "Все необхідне, щоб гроші працювали на вас",
+  },
+  cards: {
+    eyebrow: "Картки",
+    heading: "Картка під кожну задачу",
+    subhead: "Від особистого рахунку до команди - оформлення за кілька хвилин, без відділень банку.",
+    prev: "Попередня картка",
+    next: "Наступна картка",
   },
   featureVisuals: {
     transferSeconds: "4 сек",
@@ -165,6 +181,7 @@ const uk: Dictionary = {
 const en: Dictionary = {
   nav: {
     features: "Features",
+    cards: "Cards",
     preview: "App",
     audience: "Who it's for",
     join: "Join waitlist",
@@ -191,6 +208,13 @@ const en: Dictionary = {
   features: {
     eyebrow: "Features",
     heading: "Everything you need to make your money work for you",
+  },
+  cards: {
+    eyebrow: "Cards",
+    heading: "A card for every stage of your business",
+    subhead: "From a personal account to a full team - set up in minutes, no bank branch required.",
+    prev: "Previous card",
+    next: "Next card",
   },
   featureVisuals: {
     transferSeconds: "4 sec",
@@ -241,6 +265,7 @@ const en: Dictionary = {
 const ru: Dictionary = {
   nav: {
     features: "Возможности",
+    cards: "Карты",
     preview: "Приложение",
     audience: "Для кого",
     join: "Присоединиться",
@@ -267,6 +292,13 @@ const ru: Dictionary = {
   features: {
     eyebrow: "Возможности",
     heading: "Всё необходимое, чтобы деньги работали на вас",
+  },
+  cards: {
+    eyebrow: "Карты",
+    heading: "Карта под каждую задачу",
+    subhead: "От личного счёта до команды - оформление за несколько минут, без отделений банка.",
+    prev: "Предыдущая карта",
+    next: "Следующая карта",
   },
   featureVisuals: {
     transferSeconds: "4 сек",
