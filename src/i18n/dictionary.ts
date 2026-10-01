@@ -44,8 +44,6 @@ export interface Dictionary {
     eyebrow: string;
     heading: string;
     subhead: string;
-    prev: string;
-    next: string;
   };
   featureVisuals: {
     transferSeconds: string;
@@ -125,8 +123,6 @@ const uk: Dictionary = {
     eyebrow: "Картки",
     heading: "Картка під кожну задачу",
     subhead: "Від особистого рахунку до команди - оформлення за кілька хвилин, без відділень банку.",
-    prev: "Попередня картка",
-    next: "Наступна картка",
   },
   featureVisuals: {
     transferSeconds: "4 сек",
@@ -207,8 +203,6 @@ const en: Dictionary = {
     eyebrow: "Cards",
     heading: "A card for every stage of your business",
     subhead: "From a personal account to a full team - set up in minutes, no bank branch required.",
-    prev: "Previous card",
-    next: "Next card",
   },
   featureVisuals: {
     transferSeconds: "4 sec",
@@ -289,8 +283,6 @@ const ru: Dictionary = {
     eyebrow: "Карты",
     heading: "Карта под каждую задачу",
     subhead: "От личного счёта до команды - оформление за несколько минут, без отделений банка.",
-    prev: "Предыдущая карта",
-    next: "Следующая карта",
   },
   featureVisuals: {
     transferSeconds: "4 сек",

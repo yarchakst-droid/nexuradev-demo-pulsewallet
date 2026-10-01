@@ -5,6 +5,7 @@ import { LogoMark } from "@/components/shared/icons";
 import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
 import { useLang } from "@/i18n/LangContext";
 import { useActiveSection } from "@/lib/useActiveSection";
+import { scrollToHash } from "@/lib/hashLink";
 
 const SECTION_IDS = ["features", "cards", "preview", "audience"];
 
@@ -32,6 +33,7 @@ export default function Nav() {
             <Link
               key={item.id}
               href={`#${item.id}`}
+              onClick={scrollToHash(item.id)}
               className={
                 active === item.id
                   ? "rounded-full bg-accent px-4 py-2 font-medium text-bg transition-colors"
@@ -47,6 +49,7 @@ export default function Nav() {
           <LanguageSwitcher />
           <Link
             href="#waitlist"
+            onClick={scrollToHash("waitlist")}
             className="rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-bg transition-transform hover:scale-[1.03] active:scale-[0.98]"
           >
             {t.nav.join}

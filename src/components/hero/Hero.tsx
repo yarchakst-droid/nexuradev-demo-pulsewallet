@@ -1,19 +1,35 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/LangContext";
+import { scrollToHash } from "@/lib/hashLink";
+
+const CardScenePlaceholder = () => (
+  <div className="aspect-[1.586/1] w-full max-w-md animate-pulse rounded-[2rem] bg-bg-elevated" />
+);
 
 const CardScene = dynamic(() => import("@/components/hero/CardScene"), {
   ssr: false,
-  loading: () => (
-    <div className="aspect-[1.586/1] w-full max-w-md animate-pulse rounded-[2rem] bg-bg-elevated" />
-  ),
+  loading: CardScenePlaceholder,
 });
 
 export default function Hero() {
   const { t } = useLang();
+  // Fetching + parsing + first-compiling the hero's three.js bundle is a
+  // single ~700ms-under-throttling main-thread task — right when a new
+  // visitor is most likely to scroll for the first time. Hold off starting
+  // it until the browser reports it has spare idle time, so it doesn't
+  // compete with that first scroll input.
+  const [mountScene, setMountScene] = useState(false);
+  useEffect(() => {
+    const ric = window.requestIdleCallback ?? ((cb: IdleRequestCallback) => setTimeout(() => cb({} as IdleDeadline), 400));
+    const cancel = window.cancelIdleCallback ?? clearTimeout;
+    const id = ric(() => setMountScene(true), { timeout: 1500 } as IdleRequestOptions);
+    return () => cancel(id as number);
+  }, []);
 
   return (
     <section className="relative overflow-hidden">
@@ -56,12 +72,14 @@ export default function Hero() {
           >
             <Link
               href="#waitlist"
+              onClick={scrollToHash("waitlist")}
               className="flex w-full items-center justify-center gap-1.5 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-auto"
             >
               {t.hero.joinWaitlist}
             </Link>
             <Link
               href="#preview"
+              onClick={scrollToHash("preview")}
               className="flex w-full items-center justify-center gap-1.5 rounded-full border border-border px-6 py-3.5 text-sm font-medium text-text transition-colors hover:border-text-soft sm:w-auto"
             >
               {t.hero.viewApp}
@@ -79,7 +97,7 @@ export default function Hero() {
             className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-3xl"
             style={{ background: "linear-gradient(135deg, var(--color-mint), var(--color-sky))" }}
           />
-          <CardScene />
+          {mountScene ? <CardScene /> : <CardScenePlaceholder />}
           <div className="pointer-events-none absolute inset-x-10 bottom-2 h-8 rounded-full bg-text/10 blur-xl" />
         </motion.div>
       </div>

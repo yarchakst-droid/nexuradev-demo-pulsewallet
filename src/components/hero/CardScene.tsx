@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, type ThreeEvent } from "@react-three/fiber";
 import * as THREE from "three";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
@@ -196,30 +196,49 @@ function Card() {
 }
 
 export default function CardScene() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(true);
+
+  // react-three-fiber's default frameloop runs the render loop (and this
+  // scene's per-frame idle rotation/tilt math) forever, including long after
+  // the hero has scrolled out of view — a continuous, never-idle WebGL
+  // render is expensive enough under load to stall scrolling well past this
+  // section. Stop the loop once it's off-screen, resume once it's back.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <Canvas
-      // Pulled back slightly (and a touch wider FOV) versus a tight fit so the
-      // card's idle spin and pointer-driven tilt both have margin before any
-      // corner reaches the frustum edge — a card sized to just barely fit
-      // face-on will clip the instant it rotates or tilts even a little.
-      camera={{ position: [0, 0, 6.1], fov: 34 }}
-      gl={{ antialias: true, alpha: true }}
-      dpr={[1, 1.8]}
-      className="cursor-grab active:cursor-grabbing"
-    >
-      {/*
-        Manual studio-style lighting instead of drei's <Environment>: that
-        component's PMREM/HDRI processing crashed the WebGL context under
-        headless/software rendering during testing (and it's a network fetch
-        besides). A few well-placed lights give a comparable premium "product
-        shot" look on the metallic card without either risk.
-      */}
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[4, 5, 5]} intensity={1.6} />
-      <directionalLight position={[-4, -2, 3]} intensity={0.5} color="#6d5ef8" />
-      <pointLight position={[-3, 3, 4]} intensity={12} color="#8b7dff" />
-      <pointLight position={[3, -2.5, 3]} intensity={8} color="#34d399" />
-      <Card />
-    </Canvas>
+    <div ref={containerRef} className="h-full w-full">
+      <Canvas
+        // Pulled back slightly (and a touch wider FOV) versus a tight fit so the
+        // card's idle spin and pointer-driven tilt both have margin before any
+        // corner reaches the frustum edge — a card sized to just barely fit
+        // face-on will clip the instant it rotates or tilts even a little.
+        camera={{ position: [0, 0, 6.1], fov: 34 }}
+        gl={{ antialias: true, alpha: true }}
+        dpr={[1, 1.8]}
+        frameloop={visible ? "always" : "never"}
+        className="cursor-grab active:cursor-grabbing"
+      >
+        {/*
+          Manual studio-style lighting instead of drei's <Environment>: that
+          component's PMREM/HDRI processing crashed the WebGL context under
+          headless/software rendering during testing (and it's a network fetch
+          besides). A few well-placed lights give a comparable premium "product
+          shot" look on the metallic card without either risk.
+        */}
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[4, 5, 5]} intensity={1.6} />
+        <directionalLight position={[-4, -2, 3]} intensity={0.5} color="#6d5ef8" />
+        <pointLight position={[-3, 3, 4]} intensity={12} color="#8b7dff" />
+        <pointLight position={[3, -2.5, 3]} intensity={8} color="#34d399" />
+        <Card />
+      </Canvas>
+    </div>
   );
 }
